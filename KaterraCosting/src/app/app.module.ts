@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TreeTableDemoComponent } from './tree-table-demo/tree-table-demo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TreeTableDemoComponent
   ],
   imports: [
     BrowserModule
