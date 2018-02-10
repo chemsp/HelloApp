@@ -1,6 +1,45 @@
-<p-treeTable [value]="files">
+<!-- <ng-container>
+  <button type="button" (click)="addColumn()">Add Column</button>
+  <p-treeTable [value]="files" *ngFor="let col of cols" >
   <p-header>Basic</p-header>
-  <p-column field="name" header="Name"></p-column>
-  <p-column field="size" header="Size"></p-column>
-  <p-column field="type" header="Type"></p-column>
-</p-treeTable>
+  <p-column field="name" header="{{col.header}}"></p-column>
+  </p-treeTable>
+</ng-container>
+ -->
+
+<!--Very Imp code -->
+         <button type="button" (click)="addColumn()">Add Column</button>
+        <p-treeTable [value]="files" >
+        <p-header>Basic</p-header>
+        
+                <ng-container  *ngFor="let col of files">
+
+                    <p-column field="size" header="{{col.Name}}"></p-column>
+                    </ng-container>
+      
+        </p-treeTable>
+       
+    
+
+    
+<!-- 
+<ng-container>
+        <button type="button" (click)="addColumn()">Add Column</button>
+        
+        <p-header>Basic</p-header>
+        
+        <table>
+                
+                    <tr>
+                        <th *ngFor="let col of cols">
+                                <p-column field="type" header={{col.header}}></p-column>
+                        </th>
+                    </tr>
+              
+               
+            <table>
+            
+      
+      </ng-container>
+
+ -->

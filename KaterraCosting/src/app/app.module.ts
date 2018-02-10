@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { HttpModule } from '@angular/http';
+import {TableModule} from 'primeng/table';
+
 
 import {TreeTableModule} from 'primeng/treetable';
 import {TreeNode} from 'primeng/api';
@@ -18,7 +20,7 @@ import { NodeService } from './node.service';
     TreeTableDemoComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, TreeTableModule, HttpModule
+    BrowserModule, AppRoutingModule, TreeTableModule, HttpModule, TableModule,
   ],
   providers: [NodeService],
   bootstrap: [AppComponent]
