@@ -1,45 +1,118 @@
-<!-- <ng-container>
-  <button type="button" (click)="addColumn()">Add Column</button>
-  <p-treeTable [value]="files" *ngFor="let col of cols" >
-  <p-header>Basic</p-header>
-  <p-column field="name" header="{{col.header}}"></p-column>
-  </p-treeTable>
-</ng-container>
- -->
+<!-- <p-contextMenu [target]="addColMenu" [model]="items" ></p-contextMenu>
 
-<!--Very Imp code -->
-         <button type="button" (click)="addColumn()">Add Column</button>
-        <p-treeTable [value]="files" >
-        <p-header>Basic</p-header>
-        
-                <ng-container  *ngFor="let col of files">
+<!-- Very Imp code-->
 
-                    <p-column field="size" header="{{col.Name}}"></p-column>
-                    </ng-container>
+<!-- <p>Selected Nodes:</p> <span *ngFor="let file of selectedFiles">
+    <span><b>Name :</b>  {{file.data.name}} </span>
+    <span><b>Size :</b>{{file.data.size}} </span>
+    <span><b>Type :</b>{{file.data.type}} </span>
+    <span><b>Salary :</b>{{file.data.salary}} </span>
+  
+    <span>|</span>
+
+</span>
       
-        </p-treeTable>
+        <p-treeTable [value]="files"  selectionMode="checkbox" [(selection)]="selectedFiles" [style]="{'margin-top':'50px'}">
+        <p-header>Basic <button #addColMenu style="float:right" class="btn btn-default" type="button" (click)="cm">Add Column</button>
+        </p-header>
+        
+                 <ng-container  *ngFor="let col of cols"> 
+
+                    <p-column field={{col}} header={{col|uppercase}} >                         
+                        
+                            <ng-template let-node="rowData" pTemplate="body">
+                                    <input type="text" [(ngModel)]="node.data[col]" style="width:100%;border-width:0px 0px 1px 0px">
+                                </ng-template>
+                    
+                    </p-column>
+                    
+                </ng-container>
+          <button #addColMenu style="float:right" [ngClass]= "'btn btn-success'" type="button">Add Column</button>
+     
+        </p-treeTable>  
+      
+       --> 
+
+      
+
+
+       <p-contextMenu [target]="addColMenu" [model]="items" ></p-contextMenu>
+
+<!-- Very Imp code-->
+
+<p>Selected Nodes:</p> <span *ngFor="let file of selectedFiles">
+    <span><b>Name :</b>  {{file.data.name}} </span>
+    <span><b>Size :</b>{{file.data.size}} </span>
+    <span><b>Type :</b>{{file.data.type}} </span>
+    <span><b>Salary :</b>{{file.data.salary}} </span>
+  
+    <span>|</span>
+
+</span>
+
+        <p-treeTable [value]="files"  selectionMode="checkbox" [(selection)]="selectedFiles" [style]="{'margin-top':'50px'}">
+        <p-header> Master Catalog
+               <span style="float:right"> <i class="fa fa-plus" data-toggle="modal" data-target="#myModalAddColumn" style=" color:blue">New</i>
+                <i class="fa-trash-o" data-toggle="modal" data-target="#myModalDeleteColumn" style=" color:red">Delete</i>    
+            </span>
+            </p-header>
        
-    
-
-    
-<!-- 
-<ng-container>
-        <button type="button" (click)="addColumn()">Add Column</button>
-        
-        <p-header>Basic</p-header>
-        
-        <table>
                 
-                    <tr>
-                        <th *ngFor="let col of cols">
-                                <p-column field="type" header={{col.header}}></p-column>
-                        </th>
-                    </tr>
-              
-               
-            <table>
-            
-      
-      </ng-container>
+                 <ng-container  *ngFor="let col of cols"> 
+                      
+                    <p-column field={{col}} header="{{col|uppercase}}"  >                         
+                          
+                            <ng-template let-node="rowData" pTemplate="body">
+                                    <input type="text" [(ngModel)]="node.data[col]" style="width:100%;border-width:0px 0px 1px 0px">
+                                </ng-template>
+                    </p-column>
+                   
+                </ng-container>
+            </p-treeTable>   
+           
 
- -->
+     <!-- Modal pop up for Add new column
+     -->
+
+<!-- Add Column Modal -->
+<div id="myModalAddColumn" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add New Column</h4>
+      </div>
+      <div class="modal-body">
+         Column Name : <input #newcolumn type="text" />
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addColumn(newcolumn.value);newcolumn.value='' ">Add </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="myModalDeleteColumn" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Delete Column</h4>
+            </div>
+            <div class="modal-body">
+               Column Name : <input #newcolumn type="text" />
+            </div>
+            <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="removeColumn(newcolumn.value);newcolumn.value='' ">Delete </button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
