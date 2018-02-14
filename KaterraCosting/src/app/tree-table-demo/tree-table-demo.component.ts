@@ -132,7 +132,7 @@ addColumn(colname: string): void {
                                                             this.cols.push(colname);
                                                             console.log(JSON.stringify(this.files));
                                                         }
- removeColumn(colname: string): void {
+ git (colname: string): void {
    this.cols.splice( this.cols.indexOf(colname), 1);
    console.log(JSON.stringify(this.files));
  }
