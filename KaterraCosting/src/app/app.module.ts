@@ -23,12 +23,14 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import { ProjectscopeComponent } from './projectscope/projectscope.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeTableDemoComponent,
+    ProjectscopeComponent,
   ],
   imports: [
     BrowserModule, AppRoutingModule, TreeTableModule, HttpModule, TableModule, ContextMenuModule, MenuModule,

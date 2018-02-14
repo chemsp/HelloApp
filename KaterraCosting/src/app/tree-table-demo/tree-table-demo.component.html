@@ -55,16 +55,24 @@
                <span style="float:right"> <i class="fa fa-plus" data-toggle="modal" data-target="#myModalAddColumn" style=" color:blue">New</i>
                 <i class="fa-trash-o" data-toggle="modal" data-target="#myModalDeleteColumn" style=" color:red">Delete</i>    
             </span>
+          
             </p-header>
        
                 
                  <ng-container  *ngFor="let col of cols"> 
+                        
+                    <p-column field={{col}} header="{{col|uppercase}}" >    
+                            <div *ngIf="showdata;then first else second "></div>
+
+                            <ng-template #first let-node="rowData" pTemplate="body">
+                                    {{col}} 
+                              </ng-template>
                       
-                    <p-column field={{col}} header="{{col|uppercase}}"  >                         
-                          
-                            <ng-template let-node="rowData" pTemplate="body">
-                                    <input type="text" [(ngModel)]="node.data[col]" style="width:100%;border-width:0px 0px 1px 0px">
-                                </ng-template>
+                              <ng-template #second  let-node="rowData" pTemplate="body">
+                                    <input type="text" value="node" style="width:100%;border-width:0px 0px 1px 0px">
+                             
+                           </ng-template>                     
+                         
                     </p-column>
                    
                 </ng-container>
@@ -116,3 +124,12 @@
       
         </div>
       </div>
+<div *ngIf="!showdata;then first else second"></div>
+
+      <ng-template #first let-node="rowData" pTemplate="body">
+         
+        </ng-template>
+
+        <ng-template #second let-node="rowData" pTemplate="body">
+            false
+     </ng-template>
