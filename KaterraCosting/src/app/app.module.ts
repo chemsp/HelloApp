@@ -24,7 +24,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { ProjectscopeComponent } from './projectscope/projectscope.component';
-
+import {PickListModule } from 'primeng/picklist';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { ProjectscopeComponent } from './projectscope/projectscope.component';
   imports: [
     BrowserModule, AppRoutingModule, TreeTableModule, HttpModule, TableModule, ContextMenuModule, MenuModule,
     TieredMenuModule, SharedModule, DataTableModule, FormsModule, CommonModule, EditorModule, FilterPipeModule,
-     ConfirmDialogModule
+     ConfirmDialogModule, PickListModule
   ],
   providers: [NodeService, ConfirmationService],
   bootstrap: [AppComponent]

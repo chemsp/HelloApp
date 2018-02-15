@@ -12,6 +12,7 @@ import {SharedModule, DataTableModule} from 'primeng/primeng';
 import {ConfirmationService} from 'primeng/api';
 
 @Component({
+    selector : 'app-masterscope',
   templateUrl: './tree-table-demo.component.html',
   styleUrls: ['./tree-table-demo.component.css'],
   providers: [NodeService],
@@ -150,12 +151,6 @@ nodeUnselect(event) {
 
 
 
-confirm() {
-    this.confirmationService.confirm({
-        message: 'Are you sure that you want to perform this action?',
-        accept: () => {
-            //Actual logic to perform a confirmation
-        }
-    });
+
 }
-}
+

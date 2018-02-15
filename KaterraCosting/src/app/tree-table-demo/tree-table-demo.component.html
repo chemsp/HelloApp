@@ -62,18 +62,9 @@
                  <ng-container  *ngFor="let col of cols"> 
                         
                     <p-column field={{col}} header="{{col|uppercase}}" >    
-                            <div *ngIf="showdata;then first else second "></div>
-
-                            <ng-template #first let-node="rowData" pTemplate="body">
-                                    {{col}} 
-                              </ng-template>
-                      
-                              <ng-template #second  let-node="rowData" pTemplate="body">
-                                    <input type="text" value="node" style="width:100%;border-width:0px 0px 1px 0px">
-                             
-                           </ng-template>                     
-                         
-                    </p-column>
+                            
+                          
+                      </p-column>
                    
                 </ng-container>
             </p-treeTable>   
